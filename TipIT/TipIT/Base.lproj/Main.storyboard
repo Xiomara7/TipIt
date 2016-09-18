@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lmN-gK-Qux">
+<dependencies>
+<deployment identifier="iOS"/>
+<plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+</dependencies>
+<scenes>
+<!--Tip Calculator-->
+<scene sceneID="tne-QT-ifu">
+<objects>
+<viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tipIt" customModuleProvider="target" sceneMemberID="viewController">
+<view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+<rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Hm-e1-JfJ">
+<rect key="frame" x="69" y="204" width="231" height="21"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<accessibility key="accessibilityConfiguration">
+<accessibilityTraits key="traits" staticText="YES" adjustable="YES"/>
+</accessibility>
+<fontDescription key="fontDescription" type="system" pointSize="30"/>
+<color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+<nil key="highlightedColor"/>
+</label>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GTR-FJ-q3N">
+<rect key="frame" x="69" y="255" width="231" height="71"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<accessibility key="accessibilityConfiguration">
+<accessibilityTraits key="traits" staticText="YES" adjustable="YES"/>
+</accessibility>
+<fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+<color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+<nil key="highlightedColor"/>
+</label>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ic0-rd-waO">
+<rect key="frame" x="34" y="267" width="33" height="48"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+<color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+<nil key="highlightedColor"/>
+</label>
+<textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" id="sHO-q1-GCp">
+<rect key="frame" x="0.0" y="64" width="320" height="107"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+<color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+<fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+<textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+<connections>
+<action selector="calculateTip:" destination="BYZ-38-t0r" eventType="editingChanged" id="ydh-lm-vdu"/>
+</connections>
+</textField>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ysk-nI-8Fp">
+<rect key="frame" x="40" y="204" width="21" height="21"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+<color key="textColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+<nil key="highlightedColor"/>
+</label>
+</subviews>
+<color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+<gestureRecognizers/>
+<connections>
+<outletCollection property="gestureRecognizers" destination="crA-a3-BAm" appends="YES" id="4tJ-jO-x5p"/>
+</connections>
+</view>
+<navigationItem key="navigationItem" title="Tip Calculator" id="vsM-hC-eyg">
+<barButtonItem key="rightBarButtonItem" image="settings" width="22" id="JJc-Vm-hYo">
+<color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+<connections>
+<segue destination="CfZ-3x-iuo" kind="push" id="TNv-5P-PHL"/>
+</connections>
+</barButtonItem>
+</navigationItem>
+<connections>
+<outlet property="billField" destination="sHO-q1-GCp" id="Ocf-zl-vej"/>
+<outlet property="tipLabel" destination="2Hm-e1-JfJ" id="xiZ-kW-JYs"/>
+<outlet property="totalLabel" destination="GTR-FJ-q3N" id="FN3-Wo-pK7"/>
+</connections>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+<tapGestureRecognizer id="crA-a3-BAm">
+<connections>
+<action selector="onTap:" destination="BYZ-38-t0r" id="PM8-tK-5M4"/>
+</connections>
+</tapGestureRecognizer>
+</objects>
+<point key="canvasLocation" x="734" y="319"/>
+</scene>
+<!--Tip Settings-->
+<scene sceneID="kSA-ie-msJ">
+<objects>
+<viewController id="CfZ-3x-iuo" customClass="SettingsViewController" customModule="tipIt" customModuleProvider="target" sceneMemberID="viewController">
+<view key="view" contentMode="scaleToFill" id="PpP-CH-uRV">
+<rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<view contentMode="scaleToFill" id="cpt-LF-4x5">
+<rect key="frame" x="0.0" y="64" width="320" height="135"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<subviews>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CgU-0m-Uvl">
+<rect key="frame" x="169" y="18.5" width="43" height="55"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+<color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+<nil key="highlightedColor"/>
+</label>
+<view contentMode="scaleToFill" id="zxf-mq-EQx">
+<rect key="frame" x="8" y="122" width="304" height="1"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+</view>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M5E-dE-axN">
+<rect key="frame" x="71" y="16" width="90" height="59.5"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="50"/>
+<color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+<nil key="highlightedColor"/>
+</label>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="Wh3-dG-kN7">
+<rect key="frame" x="224" y="29" width="22" height="22"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+<state key="normal">
+<color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+<color key="titleShadowColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+</state>
+<connections>
+<action selector="incrementTipButtonTapped:" destination="CfZ-3x-iuo" eventType="touchUpInside" id="gBQ-JZ-LdC"/>
+</connections>
+</button>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIP %" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="O93-W5-m8a">
+<rect key="frame" x="114" y="72.5" width="47" height="21"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+<color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+<nil key="highlightedColor"/>
+</label>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dJx-6B-Htj">
+<rect key="frame" x="224" y="72" width="22" height="22"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<state key="normal" image="delete"/>
+<connections>
+<action selector="decrementTipButtonTapped:" destination="CfZ-3x-iuo" eventType="touchUpInside" id="WOA-80-7xU"/>
+</connections>
+</button>
+</subviews>
+<color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+</view>
+</subviews>
+<color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+</view>
+<navigationItem key="navigationItem" title="Tip Settings" id="LVS-16-FNd"/>
+<connections>
+<outlet property="decrementTipButton" destination="dJx-6B-Htj" id="b5z-4l-dA0"/>
+<outlet property="incrementTipButton" destination="Wh3-dG-kN7" id="vgQ-84-4Qo"/>
+<outlet property="tipPercentage" destination="M5E-dE-axN" id="qw1-Ku-mFa"/>
+</connections>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="4HR-kc-Caf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="1133" y="319"/>
+</scene>
+<!--Navigation Controller-->
+<scene sceneID="QIL-mg-BdD">
+<objects>
+<navigationController automaticallyAdjustsScrollViewInsets="NO" id="lmN-gK-Qux" sceneMemberID="viewController">
+<toolbarItems/>
+<navigationBar key="navigationBar" contentMode="scaleToFill" id="GnB-y1-aMg">
+<rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+<autoresizingMask key="autoresizingMask"/>
+</navigationBar>
+<nil name="viewControllers"/>
+<connections>
+<segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vGD-AQ-sy5"/>
+</connections>
+</navigationController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="m2f-d9-lq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="202" y="319"/>
+</scene>
+</scenes>
+<resources>
+<image name="delete" width="24" height="24"/>
+<image name="settings" width="22" height="22"/>
+</resources>
+<color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+</document>
