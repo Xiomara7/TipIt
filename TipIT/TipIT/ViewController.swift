@@ -51,16 +51,31 @@ class ViewController: UIViewController {
     }
     
     @IBAction func calculateTip(sender: AnyObject) {
-        
         let bill = Double(billField.text!) ?? 0
         
         let percentage = Double(currentPercentage) / 100
         let tip = bill * percentage ?? 0
-        
         let total = bill + tip
         
-        tipLabel.text = "$\(tip)"
-        totalLabel.text = "$\(total)"
+        tipLabel.text = NSNumber(double: tip).stringFormattedWithSeparator
+        totalLabel.text = NSNumber(double: total).stringFormattedWithSeparator
     }
 }
 
+struct Number {
+    static let formatterWithSeparator: NSNumberFormatter = {
+        
+        let formatter = NSNumberFormatter()
+        formatter.decimalSeparator = ","
+        formatter.numberStyle = .CurrencyStyle
+        formatter.locale = NSLocale.currentLocale()
+        
+        return formatter
+    }()
+}
+
+extension NSNumber {
+    var stringFormattedWithSeparator: String {
+        return Number.formatterWithSeparator.stringFromNumber(self) ?? ""
+    }    
+}
