@@ -1,27 +1,154 @@
-# Pre-work - *TipIT*
+#### **Piano client-side protocol**
 
-**TipIT** is a tip calculator application for iOS.
+----------
 
-Submitted by: **Xiomara Figueroa**
+#### 4 Posibles Escenarios:
+1. Show Dialog 
+2. Show Registration
+3. Show Offers
+4. Request Zip Code
 
-Time spent: **5** hours spent in total
+#### Tipos de Campos:
 
-## User Stories
+**Action:**
+Un **Action** representa una acción dentro o fuera de la aplicación. El valor de un **Action** puede variar entre un **deeplink** o un **URL**.
 
-The following **required** functionality is complete:
+Acciones predefinidas:
 
-* [x] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
-* [x] Settings page to change the default tip percentage.
+  1. **close**: "dismiss" o "back"
+	2. **buttons**: `"deeplink: <deeplink>"`, `"url: <url>"`
+	3. **links**: `"deeplink: <deeplink>"`, `"url: <url>"`
+	4. **presentationType**: "overlay", "inLine" o "deeplink"
 
-The following **optional** features are implemented:
-* [ ] UI animations
-* [x] Remembering the bill amount across app restarts (if <10mins)
-* [x] Using locale-specific currency and currency thousands separators.
-* [x] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
+**Value:**
+Un **value** representa un valor asignable a un objeto específico dentro de la aplicación. El valor de un **Value** puede varias entre un **string**, **int**, **double** previamente definido para cada **Value**. 
 
-## Video Walkthrough 
+Valores predefinidos:
 
-Here's a walkthrough of implemented user stories:
+  1. **copy**: string
+	2. **bgColor**: string
+	3. **fontColor**: string
+	4. **buttonColor**: string
+	5. **showMeter**: bool
+	6. **position**: {**top**: double, **bottom**: double}
 
-![alt tag](https://cloud.githubusercontent.com/assets/3449724/18612577/d965b62e-7d2b-11e6-94d6-fae5ea26cd21.gif)
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+#### Notas: 
+*  **showNewsletterRegistration** va a llegar como un *deeplink* en un **dialog**. 
+
+----------
+#### **Posibles escenarios**
+
+**1. Show Dialog:**
+
+**URI:** `endiwall://dialog/actions?=a1&values=v3`
+
+**JSON:**
+
+    
+	dialog: {
+    actions: {  
+      a1: {
+        close: string, 
+        button: string,
+        links: [string],
+        presentationType: string
+      }...
+    },
+    values: {
+      v1: {
+        copy: string,
+        bgColor: string, 
+        fontColor: string, 
+        btBgColor: string,
+        btTextColor: string, 
+        showMeter: bool, 
+        position: {
+          top: double,
+          bottom: double
+        }...
+     }
+    }
+  }
+
+**2. Show Registration:**
+
+**URI:** `endiwall:registration/actions?=a1&values=v3`
+
+**JSON:**
+
+    registration: { 
+      actions: {
+        a1: {
+          close: string, 
+          button: string,
+          links: [string],
+          presentationType: string
+        }...
+      }, 
+      values: {
+        v3: {
+          copy: string, 
+          imageURLs: [string],
+          bgColor: string, 
+          fontColor: string, 
+          btBgColor: string,
+          btTextColor: string, 
+        }...
+      }
+    }
+
+**3. Show Offers:**
+**URI:** `endiwall:offers//actions?=a1&values=v3`
+**JSON:**
+
+    offers: { 
+      actions: {
+        a1: {
+          close: string, 
+          button: string,
+          links: [string],
+          presentationType: string
+        }...
+      },
+      values: {
+        v1: {
+          copy: string, 
+          imageURLs: [string],
+          bgColor: string, 
+          fontColor: string, 
+          btBgColor: string,
+          btTextColor: string, 
+          offers: {
+            inAppDescr: string,
+            inAppID: string
+          }
+        }...
+      }
+    } 
+
+**4. Request Zip Code:**
+
+**URI:** `endiwall:zipcodeReq//actions?=a1&values=v3`
+
+**JSON:**
+
+    zipcodeReq: { 
+      actions: {
+        a1: {
+          close: string, 
+          button: string,
+          presentationType: string
+        }...
+      },
+      values: {
+        v1: {
+          copy: string, 
+          imageURLs: [string], 
+          bgColor: string, 
+          fontColor: string, 
+          btBgColor: string,
+          btTextColor: string
+        }...
+      }
+    }
+
